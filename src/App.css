@@ -52,3 +52,21 @@ code {
     transform: rotate(360deg);
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+li{
+  list-style: none;
+}
+input, button{
+  width: 300px;
+  height: 30px;
+}
