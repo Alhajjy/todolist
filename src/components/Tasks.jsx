@@ -21,17 +21,22 @@ const Tasks = ({ tasks, setTasks, pullTodo, done, setDone }) => {
     return tasks.map((e, i) => {
         return (
             <li className="task" key={i}>
-                <FontAwesomeIcon
-                    onClick={() => toDone(e)}
-                    icon={faSquareCheck}
-                />
-                {e}
-                <span>
+                <span className="side">
                     <FontAwesomeIcon
+                        className="ic done"
+                        onClick={() => toDone(e)}
+                        icon={faSquareCheck}
+                    />
+                    <span className="task-text">{e}</span>
+                </span>
+                <span className="side">
+                    <FontAwesomeIcon
+                        className="ic edit"
                         onClick={() => pullTodo(e)}
                         icon={faPenToSquare}
                     />
                     <FontAwesomeIcon
+                        className="ic delete"
                         onClick={() => deleteTodo(e)}
                         icon={faTrash}
                     />

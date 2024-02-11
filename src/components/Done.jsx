@@ -16,10 +16,20 @@ function Done({ tasks, setTasks, done, setDone }) {
     };
     return done.map((e, i) => {
         return (
-            <li key={i}>
-                <FontAwesomeIcon onClick={() => not(e)} icon={faRotateLeft} />
-                {e}
-                <FontAwesomeIcon onClick={() => deleteTodo(e)} icon={faTrash} />
+            <li className="task done-task" key={i}>
+                <span className="side">
+                    <FontAwesomeIcon
+                        className="ic edit"
+                        onClick={() => not(e)}
+                        icon={faRotateLeft}
+                    />
+                    <span className="task-text">{e}</span>
+                </span>
+                <FontAwesomeIcon
+                    className="side ic delete"
+                    onClick={() => deleteTodo(e)}
+                    icon={faTrash}
+                />
             </li>
         );
     });

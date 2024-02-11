@@ -2,24 +2,150 @@
     margin: 0;
     box-sizing: border-box;
     font-family: "sans-serif";
-    color: green;
+    color: white;
 }
 .App {
     background-image: url("./components/back.jpg");
     background-size: cover;
     min-height: 100vb;
     text-align: center;
-    li {
-        list-style: none;
-        font-weight: 800;
+    > h1 {
+        color: greenyellow;
+        padding: 30px;
     }
-    li.done {
-        color: red;
-        font-weight: 100;
+    .up,
+    .down {
+        padding: 10px;
     }
-    input,
-    button {
-        width: 300px;
-        height: 30px;
+    .up {
+        display: flex;
+        flex-flow: row wrap;
+        text-align: center;
+        justify-content: center;
+        gap: 80px;
+        .field {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            input {
+                font-weight: 700;
+                border-top: 0;
+                border-right: 0;
+                border-radius: 4px;
+                padding: 5px 10px;
+                border-color: green;
+                background-color: transparent;
+                color: greenyellow;
+                font-size: 1.1em;
+                box-shadow: -9px 9px 36px 3px rgba(15, 116, 20, 0.747);
+                outline: none;
+                &:focus {
+                    animation: lighting 5s infinite;
+                }
+            }
+            button {
+                border: 0;
+                background-color: transparent;
+                font-size: 1.1em;
+                transform: scale(1.7);
+                margin-left: 10px;
+                cursor: pointer;
+                path {
+                    color: greenyellow;
+                }
+                &:hover path {
+                    transition-duration: 0.3s;
+                    color: green;
+                }
+            }
+        }
+    }
+    .down {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-around;
+        text-align: start;
+        .sec {
+            display: flex;
+            width: 550px;
+            flex-direction: column;
+            .title {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                font-size: 1.7em;
+                h2,
+                path {
+                    color: greenyellow;
+                }
+                h2 {
+                    font-size: 1em;
+                }
+            }
+            ul {
+                padding: 0;
+                max-width: 550px;
+                li.task {
+                    border-radius: 15px;
+                    list-style: none;
+                    font-weight: 800;
+                    background-color: rgb(36, 4, 78);
+                    margin: 5px 0;
+                    padding: 15px 10px;
+                    height: auto;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    font-size: 1.3em;
+                    .side {
+                        display: flex;
+                        align-items: center;
+                    }
+                    .task-text {
+                        overflow: scroll;
+                        max-height: 50px;
+                        font-size: 0.7em;
+                    }
+                    .ic.done > path {
+                        color: greenyellow;
+                    }
+                    .ic.edit > path {
+                        color: rgb(70, 97, 255);
+                    }
+                    .ic.delete > path {
+                        color: #fd0e0e;
+                    }
+                    .ic {
+                        margin: 5px;
+                        cursor: pointer;
+                        &:hover {
+                            opacity: 70%;
+                            transition-duration: 0.3s;
+                        }
+                    }
+                }
+                li.done-task {
+                    background-color: #272735;
+                }
+            }
+        }
+    }
+}
+@keyframes lighting {
+    0% {
+        box-shadow: -10px 10px 36px 3px rgba(15, 116, 20, 0.747);
+        color: greenyellow;
+    }
+    35% {
+        box-shadow: -10px -10px 26px 3px rgba(15, 116, 20, 0.747);
+        color: white;
+    }
+    65% {
+        box-shadow: 10px 10px 26px 3px rgba(15, 116, 20, 0.747);
+        color: white;
+    }
+    100% {
+        box-shadow: -10px 10px 36px 3px rgba(15, 116, 20, 0.747);
+        color: greenyellow;
     }
 }

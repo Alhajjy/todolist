@@ -5,7 +5,7 @@ export default function Editing({ pushTodo }) {
     return (
         <div className="editing field">
             <form>
-                <input type="text" placeholder="Add todo here.." />
+                <input type="text" placeholder="--Edit Task.." />
                 <button onClick={pushTodo}>
                     <FontAwesomeIcon icon={faThumbsUp} />
                 </button>
