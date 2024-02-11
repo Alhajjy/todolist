@@ -1,24 +1,30 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPenToSquare, faTrash } from "@fortawesome/free-solid-svg-icons";
+import {
+    faPenToSquare,
+    faSquareCheck,
+    faTrash,
+} from "@fortawesome/free-solid-svg-icons";
 
-const Tasks = ({ tasks, setTasks, pullTodo }) => {
+const Tasks = ({ tasks, setTasks, pullTodo, done, setDone }) => {
     const deleteTodo = (task) => {
         tasks = JSON.parse(localStorage.todo);
-        console.log("core: ", tasks);
         const indexOfTask = tasks.indexOf(task);
         tasks.splice(indexOfTask, 1);
-        console.log("new: ", tasks);
         localStorage.todo = JSON.stringify(tasks);
         setTasks(JSON.parse(localStorage.todo));
     };
-
-    useEffect(() => {
-        localStorage.todo = JSON.stringify(tasks);
-    }, [tasks]);
+    const toDone = (task) => {
+        deleteTodo(task);
+        setDone([...done, task]);
+    };
     return tasks.map((e, i) => {
         return (
-            <li key={i}>
+            <li className="task" key={i}>
+                <FontAwesomeIcon
+                    onClick={() => toDone(e)}
+                    icon={faSquareCheck}
+                />
                 {e}
                 <span>
                     <FontAwesomeIcon
